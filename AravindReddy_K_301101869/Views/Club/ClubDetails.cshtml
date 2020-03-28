@@ -1,0 +1,100 @@
+﻿
+
+@using AravindReddy_K_301101869.Models
+@using AravindReddy_K_301101869.Models.ViewModels
+
+@model PlayerClubViewModel
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Club Details</title>
+</head>
+<body>
+    <h2>Here is the list of Clubs and Players registered in each Club</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Club Name</th>
+                <th>Club Nation</th>
+                <th>Wins</th>
+                <th>Draws</th>
+                <th>Total Points</th>
+                <th>Description</th>
+                <th>Sponser</th>
+            </tr>
+        </thead>
+
+
+        @foreach (var c in Model.club)
+        {
+            <tr>
+
+                <td>@c.clubName</td>
+                <td>@c.nation</td>
+                <td>@c.nWins</td>
+                <td>@c.nDraws</td>
+                <td>@c.totalPoints</td>
+                <td>@c.description</td>
+                <td>@c.sponsor</td>
+                <td>
+                    <form asp-controller="Crud" asp-route-clubname="@c.clubName" asp-action="DeleteClub" method="post">
+
+                        <button>delete</button>
+                    </form>
+
+                </td>
+                <td>
+                    <form asp-controller="Crud" asp-route-clubname="@c.clubName" asp-action="EditClubForm" method="post">
+
+                        <button>edit</button>
+                    </form>
+
+                </td>
+
+            </tr>
+
+        }
+        <tr>
+            <td>
+                <a asp-action="ManagePlayers" asp-controller="Players">AddPlayer</a>
+            </td>
+        </tr>
+    </table>
+
+        <h2>Here is the list of players</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Club Registered</th>
+                    <th>Jersey Number</th>
+                    <th>Rank</th>
+                    <th>Total Goals</th>
+                </tr>
+            </thead>
+
+            @foreach (var p in Model.player)
+            {
+                <tr>
+                    <td>@p.Name</td>
+                    <td>@p.Club</td>
+                    <td>@p.JersyNumber</td>
+                    <td>@p.Rank</td>
+                    <td>@p.totalGoals</td>
+                </tr>
+
+            }
+        </table>
+    
+
+
+</body>
+</html>
+
+

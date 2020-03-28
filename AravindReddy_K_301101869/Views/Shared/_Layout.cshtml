@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/Style.css" rel="stylesheet" />
+    <title>Soccer Club</title>
+    
+</head>
+<body>
+    <ul>
+        <li> <a class="b" asp-action="index"><b><i>SOCCER CLUB</i></b></a></li>
+        <li> <a asp-controller="Home" asp-action="index">Home</a>
+        <li>  <a asp-controller="Club" asp-action="Club">Club</a>
+        <li><a asp-controller="Club" asp-action="AddClub">AddClub</a></li>
+        <li><a asp-controller="Club" asp-action="ClubDetails">ClubDetails</a></li>
+        <li> <a asp-controller="Players" asp-action="ManagePlayers">ManagePlayers</a></li>
+    </ul>
+    <div>
+        
+        <div>
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

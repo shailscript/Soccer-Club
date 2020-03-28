@@ -1,0 +1,36 @@
+﻿
+@using AravindReddy_K_301101869.Models
+
+@model IEnumerable<Club>
+
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Clubs</title>
+</head>
+<body>
+    <h2>Here is the list of Clubs </h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Club Name</th>
+
+            </tr>
+        </thead>
+
+
+        @foreach (Club c in Model)
+        {
+            <tr>
+
+                <td> <a class="b" asp-action="ClubDetails" asp-route-clubName="@c.clubName"><b>@c.clubName</b></a></td>
+              
+
+            </tr>
+
+        }
+    </table>
+</body>
+</html>

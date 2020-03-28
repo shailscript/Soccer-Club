@@ -1,0 +1,80 @@
+﻿@model AravindReddy_K_301101869.Models.Club;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/Style.css" rel="stylesheet" />
+    <title>Manage players</title>
+</head>
+<body>
+    <div>
+
+        <form method="post" asp-controller="Club">
+            <table>
+
+                <tr>
+
+                    <td><label asp-for="clubName">Club Name</label></td>
+                    <td><input asp-for="clubName" type="text" /></td>
+
+
+                </tr>
+                <tr>
+
+                    <td> <label asp-for="nation">Club Address</label></td>
+                    <td>   <input asp-for="nation" type="text" /></td>
+
+
+                </tr>
+                <tr>
+
+                    <td> <label asp-for="nWins">Number of Wins</label></td>
+                    <td>  <input asp-for="nWins" type="number" /></td>
+
+
+                </tr>
+                <tr>
+
+                    <td> <label asp-for="nDraws">Number of Draws</label></td>
+                    <td><input asp-for="nDraws" type="number" /></td>
+
+
+                </tr>
+                <tr>
+
+                    <td> <label asp-for="totalPoints">Total Points</label></td>
+                    <td>  <input asp-for="totalPoints" type="number" /></td>
+
+
+                </tr>
+                <tr>
+
+                    <td><label asp-for="description">Description</label></td>
+                    <td>  <input asp-for="description" type="text" /></td>
+
+
+                </tr>
+                <tr>
+
+                    <td><label asp-for="sponsor">Sponsor</label></td>
+                    <td><input asp-for="sponsor" type="text" /></td>
+
+
+                </tr>
+                <tr>
+
+                    <td> <button type="submit">Save</button></td>
+                    <td> <button asp-controller="Home" asp-action="Index" type="submit">Cancel</button></td>
+
+
+                </tr>
+
+            </table>
+        </form>
+
+
+    </div>
+</body>
+</html>
+

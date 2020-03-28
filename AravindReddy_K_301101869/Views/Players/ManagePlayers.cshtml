@@ -1,0 +1,71 @@
+﻿
+
+
+
+@using AravindReddy_K_301101869.Models
+
+@model IEnumerable<Player>
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Manage players</title>
+</head>
+<body>
+    <h2>Here is the list of players</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Club Registered</th>
+                <th>Jersey Number</th>
+                <th>Rank</th>
+                <th>Total Goals</th>
+            </tr>
+        </thead>
+
+       @foreach (Player p in Model)
+        {
+    <tr>
+        <td>@p.Name</td>
+        <td>@p.Club</td>
+        <td>@p.JersyNumber</td>
+        <td>@p.Rank</td>
+        <td>@p.totalGoals</td>
+    </tr>
+
+        }
+    </table>
+    <div>
+
+
+    </div>
+    <div></div>
+    <div></div>
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <a asp-action="AddPlayer" asp-controller="Players">AddPlayer</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a  asp-action="" asp-controller="">ReAssign</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a  asp-action="" asp-controller="">DeRegister</a>
+                </td>
+            </tr>
+        </table>
+        
+    </div>
+</body>
+</html>
+
