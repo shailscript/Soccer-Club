@@ -1,23 +1,15 @@
-﻿
+﻿@model AravindReddy_K_301101869.Models.Club;
+
 @{
-    ViewData["Title"] = "Add_Club";
+    ViewData["Title"] = "Add Player";
 }
 
-<h2>Add_Club</h2>
-<!DOCTYPE html>
-@model AravindReddy_K_301101869.Models.Club;
-<html>
-<head>
-
-    <link href="~/css/Style.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width" />
-    <title>AddPlayer</title>
-</head>
-<body>
-    <div>
-        
-      @{Html.RenderPartial("~/Views/Shared/partialPlayerView.cshtml");}
+<div class="container m-2 mx-auto">
+    <div class=" border-bottom-2 border-dark">
+        <h2>Add Player</h2>
     </div>
-
-</body>
-</html>
+    
+    @{
+        Html.RenderPartial("~/Views/Shared/partialPlayerView.cshtml");
+    }
+</div>
