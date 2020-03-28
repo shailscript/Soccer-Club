@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Soccer Club</title>
     <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <link href="~/css/Style.css" rel="stylesheet" />
 </head>
-<body>
+<body class="d-flex flex-column h-100 w-100">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow pb-0">
             <div class="container d-flex justify-content-between">
@@ -36,13 +36,13 @@
                             <a class="nav-link text-dark" asp-controller="Club" asp-action="Club">Club</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Club" asp-action="AddClub">AddClub</a>
+                            <a class="nav-link text-dark" asp-controller="Club" asp-action="AddClub">Add Club</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Club" asp-action="ClubDetails">ClubDetails</a>
+                            <a class="nav-link text-dark" asp-controller="Club" asp-action="ClubDetails">Club Details</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Players" asp-action="ManagePlayers">ManagePlayers</a>
+                            <a class="nav-link text-dark" asp-controller="Players" asp-action="ManagePlayers">Manage Players</a>
                         </li>
 
                     </ul>
@@ -50,12 +50,14 @@
             </div>
         </nav>
     </header>
+
     <div class="container-fluid mx-0 px-0">
         @RenderBody()
     </div>
+
     <footer class="border-top footer text-muted">
         <div class="container text-center">
-            &copy; 2020 - Soccer Sorcerer
+            &copy; Arvind, Eunbi, Shailendra.
         </div>
     </footer>
 </body>
