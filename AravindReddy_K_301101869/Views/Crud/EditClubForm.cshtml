@@ -1,80 +1,55 @@
 ﻿@model AravindReddy_K_301101869.Models.Club;
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <link href="~/css/Style.css" rel="stylesheet" />
-    <title>Manage players</title>
-</head>
-<body>
-    <div>
+@{
+    ViewData["Title"] = "Edit Club";
+}
 
-        <form method="post" asp-controller="Crud" asp-action="EditClub">
-            <table>
-
-                <tr>
-
-                    <td><label asp-for="clubName">Club Name</label></td>
-                    <td><input asp-for="clubName" type="text" /></td>
-
-
-                </tr>
-                <tr>
-
-                    <td> <label asp-for="nation">Club Address</label></td>
-                    <td>   <input asp-for="nation" type="text" /></td>
-
-
-                </tr>
-                <tr>
-
-                    <td> <label asp-for="nWins">Number of Wins</label></td>
-                    <td>  <input asp-for="nWins" type="number" /></td>
-
-
-                </tr>
-                <tr>
-
-                    <td> <label asp-for="nDraws">Number of Draws</label></td>
-                    <td><input asp-for="nDraws" type="number" /></td>
-
-
-                </tr>
-                <tr>
-
-                    <td> <label asp-for="totalPoints">Total Points</label></td>
-                    <td>  <input asp-for="totalPoints" type="number" /></td>
-
-
-                </tr>
-                <tr>
-
-                    <td><label asp-for="description">Description</label></td>
-                    <td>  <input asp-for="description" type="text" /></td>
-
-
-                </tr>
-                <tr>
-
-                    <td><label asp-for="sponsor">Sponsor</label></td>
-                    <td><input asp-for="sponsor" type="text" /></td>
-
-
-                </tr>
-                <tr>
-
-                    <td> <button type="submit">Save</button></td>
-                    <td> <button asp-controller="Home" asp-action="Index" type="submit">Cancel</button></td>
-
-
-                </tr>
-
-            </table>
-        </form>
-
-
+<div class="container m-2 mx-auto">
+    <div class="border-bottom-2 border-dark">
+        <h2>Edit Club</h2>
     </div>
-</body>
-</html>
+
+    <form asp-controller="Crud" asp-action="EditClub" method="post">
+        <div class="form-group">
+            <label asp-for="clubName">Name</label>
+            <input asp-for="clubName" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="nation">Address</label>
+            <input asp-for="nation" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="nWins">Number of Wins</label>
+            <input asp-for="nWins" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="nDraws">Number of Draws</label>
+            <input asp-for="nDraws" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="totalPoints">Total Points</label>
+            <input asp-for="totalPoints" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="sponsor">Sponsor</label>
+            <input asp-for="sponsor" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="description">Description</label>
+            <input asp-for="description" class="form-control" />
+        </div>
+
+        <div class="form-group mx-auto">
+            <button class="btn btn-success" type="submit" value="Create">Update Club</button>
+            <a asp-action="Index" asp-controller="Home" class="btn btn-danger">Cancel</a>
+        </div>
+    </form>
+</div>
+
 
