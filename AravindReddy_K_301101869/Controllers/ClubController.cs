@@ -6,13 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using AravindReddy_K_301101869.Models;
 using AravindReddy_K_301101869.Models.ViewModels;
 using AravindReddy_K_301101869;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AravindReddy_K_301101869.Controllers
 {
     public class ClubController : Controller
     {
-
-
         private IClubRepository clubRepository;
         private IPlayerRepository playerRepository;
 
@@ -20,18 +19,18 @@ namespace AravindReddy_K_301101869.Controllers
         {
             clubRepository = crepo;
             playerRepository = prepo;
-
-
         }
+
         [HttpGet]
+        [Authorize]
         public ViewResult AddClub()
         {
             return View();
         }
+        
         [HttpPost]
         public ActionResult AddClub(Club clubs)
         {
-
             clubRepository.AddClub(clubs);
             ModelState.Clear();
             return RedirectToAction("Club", "Club");

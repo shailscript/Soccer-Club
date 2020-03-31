@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AravindReddy_K_301101869.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AravindReddy_K_301101869.Controllers
@@ -12,18 +13,21 @@ namespace AravindReddy_K_301101869.Controllers
         IPlayerRepository playerrepo;
         IClubRepository clubrepo;
         ApplicationDbContext _context;
+       
         public CrudController(ApplicationDbContext context, IPlayerRepository ipr, IClubRepository icr)
         {
             playerrepo = ipr;
             clubrepo = icr;
             _context = context;
         }
-        [HttpPost]
+
+        /*[HttpPost]*/
+        [Authorize]
         public ActionResult EditClubForm(String clubname)
         {
             return View(_context.clubitems.Where(s => s.clubName == clubname).First());
-
         }
+
         [HttpPost]
         public ActionResult EditClub(Club club)
         {
@@ -32,6 +36,7 @@ namespace AravindReddy_K_301101869.Controllers
 
             return RedirectToAction("Club", "Club");
         }
+
         [HttpPost]
         public ActionResult DeleteClub(String clubname)
         {
@@ -49,6 +54,7 @@ namespace AravindReddy_K_301101869.Controllers
                 return View("ClubDetails");
             }
         }
+
         public IActionResult Index()
         {
             return View();

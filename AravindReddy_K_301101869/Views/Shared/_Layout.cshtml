@@ -44,7 +44,18 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Players" asp-action="ManagePlayers">Manage Players</a>
                         </li>
-
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="col-2">
+                                <a class="btn btn-sm btn-primary" asp-action="Logout" asp-controller="Account">Log Out</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-2">
+                                <a class="btn btn-sm btn-primary" asp-action="Login" asp-controller="Account">Log In</a>
+                            </div>
+                        }
                     </ul>
                 </div>
             </div>

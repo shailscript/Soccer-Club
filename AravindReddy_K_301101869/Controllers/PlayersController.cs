@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AravindReddy_K_301101869.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AravindReddy_K_301101869.Controllers
 {
@@ -37,10 +38,11 @@ namespace AravindReddy_K_301101869.Controllers
                 return View();
             }
         }
+
+        [Authorize]
         public ViewResult ManagePlayers()
         {
             return View(iRepositoryPlayer.playerdatafromdb);
         }
-
     }
 }
