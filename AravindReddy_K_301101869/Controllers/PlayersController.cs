@@ -30,8 +30,8 @@ namespace AravindReddy_K_301101869.Controllers
             if (ModelState.IsValid)
             {
                 playerRepository.AddResponse(player); 
-                ModelState.Clear(); 
-                return View();
+                ModelState.Clear();
+                return RedirectToAction(nameof(ManagePlayers));
             }
             else
             {
