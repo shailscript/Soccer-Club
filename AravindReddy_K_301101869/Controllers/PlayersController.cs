@@ -10,12 +10,12 @@ namespace AravindReddy_K_301101869.Controllers
 {
     public class PlayersController : Controller
     {
-        IPlayerRepository iRepositoryPlayer;
+        IPlayerRepository playerRepository;
         
-        public PlayersController( IPlayerRepository iPlayerRepo)
+        public PlayersController( IPlayerRepository repository)
         {
            
-            this.iRepositoryPlayer = iPlayerRepo;
+            this.playerRepository = repository;
 
         }
         [HttpGet]
@@ -29,7 +29,7 @@ namespace AravindReddy_K_301101869.Controllers
 
             if (ModelState.IsValid)
             {
-               iRepositoryPlayer.AddResponse(player); 
+                playerRepository.AddResponse(player); 
                 ModelState.Clear(); 
                 return View();
             }
@@ -42,7 +42,7 @@ namespace AravindReddy_K_301101869.Controllers
         [Authorize]
         public ViewResult ManagePlayers()
         {
-            return View(iRepositoryPlayer.playerdatafromdb);
+            return View(playerRepository.playerdatafromdb);
         }
     }
 }
