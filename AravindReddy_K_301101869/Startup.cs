@@ -25,11 +25,11 @@ namespace AravindReddy_K_301101869
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>().AddDefaultTokenProviders();
 
             services.AddTransient<IPlayerRepository, EFPlayerRepository>();
-            services.AddTransient<IClubRepository ,EFClubRepository>();
+            services.AddTransient<IClubRepository, EFClubRepository>();
+
             services.AddMvc();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -39,9 +39,9 @@ namespace AravindReddy_K_301101869
 
             app.UseAuthentication();
             app.UseDeveloperExceptionPage();
-
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
+
             SeedData.EnsurePopulated(app);
             IdentitySeedData.EnsurePopulated(app);
         }

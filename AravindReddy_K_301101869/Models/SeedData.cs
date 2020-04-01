@@ -20,9 +20,6 @@ namespace AravindReddy_K_301101869.Models
                 new Club { clubName = "SoccerLions", nation = "india", nWins = 10, nDraws = 4, totalPoints = 100, description="won 3 titles" ,sponsor="bsnl"  },
                 new Club { clubName = "Socceeerr", nation = "canada", nWins = 11, nDraws = 2, totalPoints = 120, description = "won 5 titles", sponsor = "Rogers" },
                 new Club { clubName = "TorontoClub", nation = "canada", nWins = 8, nDraws = 3, totalPoints = 80, description = "won 2 titles", sponsor = "Henna" }
-
-
-
               );
                 context.SaveChanges();
             }
