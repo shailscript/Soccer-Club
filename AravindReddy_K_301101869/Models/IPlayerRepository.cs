@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 
 namespace AravindReddy_K_301101869.Models
 {
-   public interface IPlayerRepository
+    public interface IPlayerRepository
     {
         IEnumerable<Player> playerdatafromdb { get; }
 
         void AddResponse(Player player);
+        void Delete(String playerName);
+        void EditPlayer(Player player);
     }
 }

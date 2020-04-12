@@ -1,10 +1,12 @@
-﻿@using AravindReddy_K_301101869.Models
+﻿
+@using AravindReddy_K_301101869.Models.ViewModels
 
-@model IEnumerable<Player>
+@model PlayerClubViewModel
 
 @{
     ViewData["Title"] = "Players";
 }
+
 
 <div class="container m-2 mx-auto">
     <div class="d-flex m-2 justify-content-between align-items-center border-bottom-2 border-dark">
@@ -17,7 +19,7 @@
     </div>
 
     <div>
-        @foreach (Player p in Model)
+        @foreach (var p in Model.player)
         {
             <div class="card mb-3">
                 <h5 class="card-header">Club: @p.Club</h5>
@@ -31,18 +33,20 @@
                         </p>
                     </div>
                     <div>
-                        <a href="#" class="m-2 btn btn-warning">Reassign</a>
-                        <a href="#" class="m-2 btn btn-danger">Deregister</a>
+                        <form asp-controller="Crud" asp-route-playerName="@p.Name" asp-action="EditPlayerForm" method="post">
+                            <input type="submit" value="Update/Reassign" class="mx-2 btn btn-warning" />
+                        </form>
+
+                        <form asp-controller="Crud" asp-action="DeletePlayer" asp-route-playerName="@p.Name" method="post">
+                            <input type="submit" value="DeRegister" class="m-2 btn btn-danger" />
+                        </form>
+
                     </div>
 
-                    @*
-                        <p>
-                            <a asp-action="Edit" asp-route-id="@p.Id">Reassign/Edit Player</a>
-                        </p>
-                        <a class="btn btn-primary text-white" asp-action="Details" asp-route-id="@p.Id">View details</a>
-                    *@
+
                 </div>
             </div>
         }
     </div>
+    <div page-model="@Model.PagingInfo" page-action="ManagePlayers"></div>
 </div>

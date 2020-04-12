@@ -8,8 +8,6 @@ namespace AravindReddy_K_301101869.Models
 {
     public class Club
     {
-
-
         [Key]
         public string clubName { set; get; }
         public string nation { set; get; }
@@ -20,6 +18,5 @@ namespace AravindReddy_K_301101869.Models
         public int? totalPoints { get; set; }
         public string description { set; get; }
         public string sponsor { set; get; }
-     
     }
 }

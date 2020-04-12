@@ -1,7 +1,7 @@
 ﻿@model AravindReddy_K_301101869.Models.Player;
 
 <div class="container m-2 mx-auto">
-    <form asp-controller="Players" asp-action="AddPlayer" method="post">
+    <form asp-controller="Crud" asp-action="EditPlayer" method="post">
         <div class="form-group">
             <label asp-for="Name">Name</label>
             <input asp-for="Name" class="form-control" />
@@ -26,10 +26,13 @@
             <label asp-for="Club">Club Name</label>
 
             <select asp-for="Club" asp-items="@( new SelectList(ViewBag.Clubs,"clubName","clubName"))"> </select>
+
         </div>
 
+
+
         <div class="form-group">
-            <button class="btn btn-success" type="submit" value="Create">Add Player</button>
+            <button class="btn btn-success" type="submit" value="Create">Submit</button>
             <a asp-action="Index" asp-controller="Home" class="btn btn-danger">Cancel</a>
         </div>
     </form>

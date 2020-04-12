@@ -12,43 +12,45 @@ namespace AravindReddy_K_301101869.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private UserManager<IdentityUser> userManager; 
+        private UserManager<IdentityUser> userManager;
         private SignInManager<IdentityUser> signInManager;
 
-        public AccountController(UserManager<IdentityUser> userMgr, 
-            SignInManager<IdentityUser> signInMgr) 
-        { 
-            userManager = userMgr; signInManager = signInMgr; 
+        public AccountController(UserManager<IdentityUser> userMgr,
+            SignInManager<IdentityUser> signInMgr)
+        {
+            userManager = userMgr; signInManager = signInMgr;
         }
 
-        [AllowAnonymous] 
-        public ViewResult Login(string returnUrl) 
-        { 
-             return View(new LoginModel { ReturnUrl = returnUrl }); 
+        [AllowAnonymous]
+        public ViewResult Login(string returnUrl)
+        {
+            return View(new LoginModel { ReturnUrl = returnUrl });
         }
-       
+
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginModel loginModel)
         {
             if (ModelState.IsValid)
-            { 
+            {
                 IdentityUser user = await userManager.FindByNameAsync(loginModel.Name);
-                if (user != null) { await signInManager.SignOutAsync();
+                if (user != null)
+                {
+                    await signInManager.SignOutAsync();
                     if ((await signInManager.PasswordSignInAsync(user, loginModel.Password, false, false)).Succeeded)
                     {
-                        return Redirect(loginModel?.ReturnUrl ?? "/Home/Index"); 
+                        return Redirect(loginModel?.ReturnUrl ?? "/Home/Index");
                     }
-                } 
+                }
             }
-            ModelState.AddModelError("", "Invalid name or password"); 
+            ModelState.AddModelError("", "Invalid name or password");
             return View(loginModel);
         }
 
         public async Task<RedirectResult> Logout(string returnUrl = "/")
-        { 
-            await signInManager.SignOutAsync(); return Redirect(returnUrl); 
+        {
+            await signInManager.SignOutAsync(); return Redirect(returnUrl);
         }
     }
 }

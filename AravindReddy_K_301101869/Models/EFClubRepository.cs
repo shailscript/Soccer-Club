@@ -15,25 +15,25 @@ namespace AravindReddy_K_301101869.Models
 
 
 
-        
+
 
 
 
         IEnumerable<Club> IClubRepository.clubfromdb => context.clubitems;
 
 
-      
+
         public void Delete(String nameofclub)
         {
-         
-           Club club = context.clubitems.Where(c => c.clubName == nameofclub).FirstOrDefault();
+
+            Club club = context.clubitems.Where(c => c.clubName == nameofclub).FirstOrDefault();
             context.clubitems.Remove(club);
             context.SaveChanges();
         }
 
         public void AddClub(Club newClub)
         {
-            
+
             context.clubitems.Add(newClub);
             context.SaveChanges();
         }
@@ -43,7 +43,7 @@ namespace AravindReddy_K_301101869.Models
             Club editclub = context.clubitems.Where(s => s.clubName == club.clubName).First();
             editclub.clubName = club.clubName;
             editclub.nation = club.nation;
-            editclub.nWins= club.nWins;
+            editclub.nWins = club.nWins;
             editclub.nDraws = club.nDraws;
             editclub.totalPoints = club.totalPoints;
             editclub.description = club.description;

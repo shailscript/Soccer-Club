@@ -9,5 +9,6 @@ namespace AravindReddy_K_301101869.Models.ViewModels
     {
         public IEnumerable<Club> club { get; set; }
         public IEnumerable<Player> player { get; set; }
+        public PagingInfo PagingInfo { get; set; }
     }
 }

@@ -1,0 +1,34 @@
+﻿<div id="player-info" class="w-100 pl-5">
+    <div class="d-flex justify-content-between">
+        <h3>Club Players</h3>
+        <a asp-action="ManagePlayers" asp-controller="Players">AddPlayer</a>
+    </div>
+    @foreach (var p in Model.player)
+    {
+        <div class="card mb-3">
+            <div class="card-body d-flex justify-content-between">
+                <div>
+                    <h5 class="card-title">@p.Name</h5>
+                    <p class="card-text">
+                        <small class="text-muted">Jersey Number: </small>@p.JersyNumber |&nbsp;
+                        <small class="text-muted">Rank: </small>@p.Rank |&nbsp;
+                        <small class="text-muted">Goals: </small>@p.totalGoals
+                    </p>
+                </div>
+                <div>
+                    <form asp-controller="Crud" asp-route-playerName="@p.Name" asp-action="EditPlayerForm" method="post">
+                        <input type="submit" value="Update/Reassign" class="mx-2 btn btn-warning" />
+                    </form>
+
+                    <form asp-controller="Crud" asp-action="DeletePlayer" asp-route-playerName="@p.Name" method="post">
+                        <input type="submit" value="DeRegister" class="m-2 btn btn-danger" />
+                    </form>
+
+                </div>
+
+
+            </div>
+        </div>
+    }
+
+</div>
