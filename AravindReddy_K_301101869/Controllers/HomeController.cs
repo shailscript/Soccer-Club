@@ -18,10 +18,6 @@ namespace AravindReddy_K_301101869.Controllers
             this.repository_player = player;
 
         }
-        //public ViewResult Index()
-        //{
-        //    return View();
-        //}
 
         public IActionResult Index()
         {

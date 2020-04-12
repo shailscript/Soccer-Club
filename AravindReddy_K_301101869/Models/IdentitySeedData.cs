@@ -15,11 +15,11 @@ namespace AravindReddy_K_301101869.Models
             context.Database.Migrate();
 
             UserManager<IdentityUser> userManager = app.ApplicationServices.GetRequiredService<UserManager<IdentityUser>>();
-            IdentityUser user = await userManager.FindByIdAsync(adminUser); 
-            if (user == null) 
-            { 
+            IdentityUser user = await userManager.FindByIdAsync(adminUser);
+            if (user == null)
+            {
                 user = new IdentityUser("Admin");
-                await userManager.CreateAsync(user, adminPassword); 
+                await userManager.CreateAsync(user, adminPassword);
             }
         }
     }
