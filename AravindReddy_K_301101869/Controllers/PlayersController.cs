@@ -44,7 +44,7 @@ namespace AravindReddy_K_301101869.Controllers
                 return View();
             }
         }
-        public int PageSize = 2;
+        public int PageSize = 5;
 
         public ViewResult ManagePlayers(int productPage = 1)
         {
