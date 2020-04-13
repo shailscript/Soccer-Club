@@ -15,15 +15,13 @@
         </div>
     </div>
 
-    <div class="d-flex flex-wrap justify-content-between mx-4">
+    <div class="d-flex flex-wrap mx-4">
         @foreach (var c in Model.club)
         {
             <div class="card m-2 mb-4" style="width: 20rem;">
                 <div class="card-body">
                     <h5 class="card-title border-bottom"><a asp-action="ClubDetails" asp-route-clubName="@c.clubName">@c.clubName</a></h5>
                     <p class="card-text text-muted">@c.description</p>
-
-                    @*<a class="btn btn-primary text-white" asp-controller="Clubs" asp-action="Details" asp-route-id="@c.Id">View details</a>*@
                 </div>
             </div>
         }

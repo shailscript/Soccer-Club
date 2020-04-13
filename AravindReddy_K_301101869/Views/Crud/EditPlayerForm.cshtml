@@ -6,14 +6,14 @@
 
 <div class="container m-2 mx-auto">
     <div class="border-bottom-2 border-dark">
-        <h2>Add Player</h2>
+        <h2>Edit Player</h2>
     </div>
 
     <div class="container m-2 mx-auto">
         <form asp-controller="Crud" asp-action="EditPlayer" method="post">
             <div class="form-group">
                 <label asp-for="Name">Name</label>
-                <input asp-for="Name" class="form-control" />
+                <input asp-for="Name" class="form-control" readonly />
             </div>
 
             <div class="form-group">
