@@ -34,23 +34,21 @@ namespace AravindReddy_K_301101869.Controllers
             ModelState.Clear();
             return RedirectToAction("Club", "Club");
         }
+
         public int PageSize = 3;
         public ViewResult Club(int productPage = 1)
         {
-
             return View(new PlayerClubViewModel
             {
-
-                club = clubRepository.clubfromdb
-                 .OrderBy(c => c.clubName).Skip((productPage - 1) * PageSize).Take(PageSize),
+                club = clubRepository.clubfromdb.OrderBy(c => c.clubName)
+                                                .Skip((productPage - 1) * PageSize)
+                                                .Take(PageSize),
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = productPage,
                     ItemsPerPage = PageSize,
                     TotalItems = clubRepository.clubfromdb.Count()
-
                 }
-
             });
 
         }
@@ -58,13 +56,10 @@ namespace AravindReddy_K_301101869.Controllers
         [HttpGet]
         public ViewResult ClubDetails(string clubName, int productPage = 1)
         {
-
-
             return View(new PlayerClubViewModel
             {
                 club = clubRepository.clubfromdb.Where(c => c.clubName == clubName),
                 player = playerRepository.playerdatafromdb.Where(p => p.Club == clubName)
-
             });
         }
     }

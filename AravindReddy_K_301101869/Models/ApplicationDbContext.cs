@@ -13,5 +13,4 @@ namespace AravindReddy_K_301101869.Models
         public DbSet<Club> clubitems { get; set; }
         public DbSet<Player> playeritems { get; set; }
     }
-
 }

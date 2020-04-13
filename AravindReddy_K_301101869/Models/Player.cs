@@ -14,6 +14,5 @@ namespace AravindReddy_K_301101869.Models
         public int JersyNumber { get; set; }
         public int Rank { get; set; }
         public int totalGoals { get; set; }
-
     }
 }

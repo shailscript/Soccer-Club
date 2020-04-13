@@ -21,7 +21,6 @@ namespace AravindReddy_K_301101869.Controllers
             _context = context;
         }
 
-
         [Authorize]
         public ActionResult EditClubForm(String clubname)
         {
@@ -39,16 +38,12 @@ namespace AravindReddy_K_301101869.Controllers
         public ActionResult EditClub(Club club)
         {
             clubrepo.EditClub(club);
-
-
             return RedirectToAction("Club", "Club");
         }
         [HttpPost]
         public ActionResult EditPlayer(Player player)
         {
             playerrepo.EditPlayer(player);
-
-
             return RedirectToAction("Club", "Club");
         }
 
@@ -58,7 +53,6 @@ namespace AravindReddy_K_301101869.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 clubrepo.Delete(clubname);
                 ModelState.Clear();
                 _context.SaveChanges();
@@ -66,7 +60,6 @@ namespace AravindReddy_K_301101869.Controllers
             }
             else
             {
-
                 return View("ClubDetails");
             }
         }
@@ -76,7 +69,6 @@ namespace AravindReddy_K_301101869.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 playerrepo.Delete(playerName);
                 ModelState.Clear();
                 _context.SaveChanges();
@@ -84,14 +76,10 @@ namespace AravindReddy_K_301101869.Controllers
             }
             else
             {
-
                 return View("ClubDetails");
             }
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
     }
 }

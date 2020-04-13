@@ -31,6 +31,7 @@ namespace AravindReddy_K_301101869.Infrastructure
             for (int i = 1; i <= PageModel.TotalPages; i++)
             {
                 TagBuilder tag = new TagBuilder("a");
+                tag.AddCssClass("page-link");
                 tag.Attributes["href"] = urlHelper.Action(PageAction, new { productPage = i });
                 tag.InnerHtml.Append(i.ToString());
                 result.InnerHtml.AppendHtml(tag);

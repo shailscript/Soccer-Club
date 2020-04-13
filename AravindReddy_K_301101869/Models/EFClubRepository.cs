@@ -13,19 +13,10 @@ namespace AravindReddy_K_301101869.Models
         public EFClubRepository(ApplicationDbContext ctx) { context = ctx; }
         public IQueryable<Club> clubsdatafromdb => context.clubitems;
 
-
-
-
-
-
-
         IEnumerable<Club> IClubRepository.clubfromdb => context.clubitems;
-
-
 
         public void Delete(String nameofclub)
         {
-
             Club club = context.clubitems.Where(c => c.clubName == nameofclub).FirstOrDefault();
             context.clubitems.Remove(club);
             context.SaveChanges();
@@ -33,7 +24,6 @@ namespace AravindReddy_K_301101869.Models
 
         public void AddClub(Club newClub)
         {
-
             context.clubitems.Add(newClub);
             context.SaveChanges();
         }

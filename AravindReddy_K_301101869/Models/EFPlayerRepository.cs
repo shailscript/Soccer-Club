@@ -7,23 +7,24 @@ namespace AravindReddy_K_301101869.Models
 {
     public class EFPlayerRepository : IPlayerRepository
     {
-
         private ApplicationDbContext context;
 
         public EFPlayerRepository(ApplicationDbContext ctx) { context = ctx; }
         IEnumerable<Player> IPlayerRepository.playerdatafromdb => context.playeritems;
+
         public void AddResponse(Player player)
         {
             context.playeritems.Add(player);
             context.SaveChanges();
         }
+
         public void Delete(String PlayerName)
         {
-
             Player player = context.playeritems.Where(p => p.Name == PlayerName).FirstOrDefault();
             context.playeritems.Remove(player);
             context.SaveChanges();
         }
+
         public void EditPlayer(Player player)
         {
             Player editplayer = context.playeritems.Where(p => p.Name == player.Name).First();

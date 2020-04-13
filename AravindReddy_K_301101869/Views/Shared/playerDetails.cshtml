@@ -3,6 +3,7 @@
         <h3>Club Players</h3>
         <a asp-action="ManagePlayers" asp-controller="Players">AddPlayer</a>
     </div>
+
     @foreach (var p in Model.player)
     {
         <div class="card mb-3">
@@ -17,18 +18,14 @@
                 </div>
                 <div>
                     <form asp-controller="Crud" asp-route-playerName="@p.Name" asp-action="EditPlayerForm" method="post">
-                        <input type="submit" value="Update/Reassign" class="mx-2 btn btn-warning" />
+                        <input type="submit" value="Update/Reassign" class="mx-2 px-3 btn btn-warning" />
                     </form>
 
                     <form asp-controller="Crud" asp-action="DeletePlayer" asp-route-playerName="@p.Name" method="post">
-                        <input type="submit" value="DeRegister" class="m-2 btn btn-danger" />
+                        <input type="submit" value="Delete/DeRegister" class="m-2 btn btn-danger" />
                     </form>
-
                 </div>
-
-
             </div>
         </div>
     }
-
 </div>

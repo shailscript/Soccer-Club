@@ -12,7 +12,7 @@ namespace AravindReddy_K_301101869.Models.ViewModels
         public string Name { get; set; }
 
         [Required]
-        [UIHint("password")]
+        [UIHint("Secret123$")]
         public string Password { get; set; }
         public string ReturnUrl { get; set; } = "/";
     }

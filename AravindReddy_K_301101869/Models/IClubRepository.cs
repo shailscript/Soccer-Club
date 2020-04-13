@@ -7,8 +7,6 @@ namespace AravindReddy_K_301101869.Models
 {
     public interface IClubRepository
     {
-
-
         IEnumerable<Club> clubfromdb { get; }
         void AddClub(Club newCLub);
         void Delete(String clubname);

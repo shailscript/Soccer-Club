@@ -18,7 +18,7 @@ namespace AravindReddy_K_301101869.Models
             IdentityUser user = await userManager.FindByIdAsync(adminUser);
             if (user == null)
             {
-                user = new IdentityUser("Admin");
+                user = new IdentityUser(adminUser);
                 await userManager.CreateAsync(user, adminPassword);
             }
         }

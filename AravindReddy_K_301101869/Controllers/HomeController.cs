@@ -16,15 +16,11 @@ namespace AravindReddy_K_301101869.Controllers
         {
             this.repository_club = club;
             this.repository_player = player;
-
         }
 
         public IActionResult Index()
         {
             return View("Index");
         }
-
-
-
     }
 }

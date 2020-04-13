@@ -12,7 +12,7 @@
 </head>
 <body class="d-flex flex-column h-100 w-100">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow pb-0">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow py-0">
             <div class="container d-flex justify-content-between">
                 <div class="d-flex justify-content-between">
                     <div>
@@ -46,15 +46,15 @@
                         </li>
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <div class="col-2">
-                                <a class="btn btn-sm btn-primary" asp-action="Logout" asp-controller="Account">Log Out</a>
-                            </div>
+                            <li class="nav-item bg-warning">
+                                <a class="nav-link font-weight-bold" asp-action="Logout" asp-controller="Account">Log Out</a>
+                            </li>
                         }
                         else
                         {
-                            <div class="col-2">
-                                <a class="btn btn-sm btn-primary" asp-action="Login" asp-controller="Account">Log In</a>
-                            </div>
+                            <li class="nav-item bg-warning">
+                                <a class="nav-link font-weight-bold" asp-action="Login" asp-controller="Account">Log In</a>
+                            </li>
                         }
                     </ul>
                 </div>

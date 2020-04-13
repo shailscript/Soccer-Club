@@ -20,6 +20,7 @@ namespace AravindReddy_K_301101869.Controllers
             this.dbContext = applicationDbContext;
 
         }
+
         [HttpGet]
         [Authorize]
         public ViewResult AddPlayer()
@@ -27,6 +28,7 @@ namespace AravindReddy_K_301101869.Controllers
             ViewBag.Clubs = dbContext.clubitems.ToList();
             return View();
         }
+
         [HttpPost]
         public ActionResult AddPlayer(Player player)
         {
@@ -48,7 +50,6 @@ namespace AravindReddy_K_301101869.Controllers
         {
             return View(new PlayerClubViewModel
             {
-
                 player = playerRepository.playerdatafromdb
                     .OrderBy(p => p.Name).Skip((productPage - 1) * PageSize).Take(PageSize),
                 PagingInfo = new PagingInfo
@@ -56,11 +57,8 @@ namespace AravindReddy_K_301101869.Controllers
                     CurrentPage = productPage,
                     ItemsPerPage = PageSize,
                     TotalItems = playerRepository.playerdatafromdb.Count()
-
                 }
-            }
-                );
+            });
         }
-
     }
 }

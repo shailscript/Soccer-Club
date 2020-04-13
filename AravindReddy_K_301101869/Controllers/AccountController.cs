@@ -15,8 +15,7 @@ namespace AravindReddy_K_301101869.Controllers
         private UserManager<IdentityUser> userManager;
         private SignInManager<IdentityUser> signInManager;
 
-        public AccountController(UserManager<IdentityUser> userMgr,
-            SignInManager<IdentityUser> signInMgr)
+        public AccountController(UserManager<IdentityUser> userMgr, SignInManager<IdentityUser> signInMgr)
         {
             userManager = userMgr; signInManager = signInMgr;
         }
@@ -44,6 +43,7 @@ namespace AravindReddy_K_301101869.Controllers
                     }
                 }
             }
+
             ModelState.AddModelError("", "Invalid name or password");
             return View(loginModel);
         }

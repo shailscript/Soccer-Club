@@ -7,7 +7,6 @@
     ViewData["Title"] = "Players";
 }
 
-
 <div class="container m-2 mx-auto">
     <div class="d-flex m-2 justify-content-between align-items-center border-bottom-2 border-dark">
         <div>
@@ -32,21 +31,27 @@
                             <small class="text-muted">Goals: </small>@p.totalGoals
                         </p>
                     </div>
+
                     <div>
                         <form asp-controller="Crud" asp-route-playerName="@p.Name" asp-action="EditPlayerForm" method="post">
-                            <input type="submit" value="Update/Reassign" class="mx-2 btn btn-warning" />
+                            <input type="submit" value="Update/Reassign" class="mx-2 px-3 btn btn-warning" />
                         </form>
 
                         <form asp-controller="Crud" asp-action="DeletePlayer" asp-route-playerName="@p.Name" method="post">
-                            <input type="submit" value="DeRegister" class="m-2 btn btn-danger" />
+                            <input type="submit" value="Delete/DeRegister" class="m-2 btn btn-danger" />
                         </form>
-
                     </div>
-
-
                 </div>
             </div>
         }
     </div>
-    <div page-model="@Model.PagingInfo" page-action="ManagePlayers"></div>
+
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="px-2">
+            <h5 class="font-weight-lighter">Pages : </h5>
+        </div>
+        <div>
+            <div class="pagination" page-model="@Model.PagingInfo" page-action="ManagePlayers"></div>
+        </div>
+    </div>
 </div>
